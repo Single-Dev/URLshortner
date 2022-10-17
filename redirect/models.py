@@ -1,8 +1,6 @@
-from datetime import datetime
-from email.policy import default
-from django.db import models
 from django.contrib.auth.models import AbstractUser
-from django.utils.timezone import datetime
+from django.db import models
+from audioop import add
 
 class CustomeUser(AbstractUser):
     is_organiser = models.BooleanField(default=False)
@@ -12,6 +10,6 @@ class CustomeUser(AbstractUser):
 class URLshortner(models.Model):
     url = models.CharField(max_length=75)
     slug = models.SlugField(unique=True)
-    added_date = models.DateField(default=datetime.time().now())
+    date = models.DateTimeField(auto_now=add)
     def __str__(self):
         return f"id: {self.pk}"
