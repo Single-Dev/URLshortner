@@ -1,7 +1,9 @@
 <form method="post">
     {% csrf_token %}
-    {{form }}
-    <button type="submit">Submit</button>
+    {% load widget_tweaks %}
+    {% render_field form.url type="text" id="url" placeholder="Enter Your link" %}
+    {% render_field form.slug type="text" id="shortner" placeholder="Custome Shor link" %}
+
+    <button type="submit" class="btn btn-info" id="btn">Submit</button>
 
 </form>
-
