@@ -2,8 +2,10 @@
     {% csrf_token %}
     {% load widget_tweaks %}
     {% render_field form.url type="text" id="url" placeholder="Enter Your link" %}
-    {% render_field form.slug type="text" id="shortner" placeholder="Custome Shor link" %}
-
+    {% render_field form.slug type="hidden" id="short_link" placeholder="Custome Shor link"%}
+    {% if request.user.is_authenticated %}
+    <button type="button" id="edit_btn">Custum Short Link</button>
+    {% endif %}
     <button type="submit" class="btn btn-info" id="btn">Submit</button>
 
 </form>
