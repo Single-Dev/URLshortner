@@ -7,7 +7,7 @@ class CustomeUser(AbstractUser):
 
 
 class URLshortner(models.Model):
-    url = models.CharField(max_length=75)
+    url = models.URLField(max_length=75)
     slug = models.SlugField(unique=True)
     
     def __str__(self):

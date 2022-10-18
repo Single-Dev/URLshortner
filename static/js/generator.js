@@ -1,7 +1,10 @@
 let short_link = document.querySelector("#short_link")
 let url = document.querySelector("#url")
 let btn = document.querySelector("#btn")
+
+let shortLink = document.querySelector("#short_link")
 let edit_btn = document.getElementById("edit_btn")
+
 
 let = upper = "QWERTYUIOPASDFGHJKLMNBVCXZ"
 let = lower = 'qwertyuiopasdfghjklmnbvcxz'
@@ -19,10 +22,12 @@ function generateString(length) {
     return result;
 }
 
+if(edit_btn){
+    edit_btn.addEventListener("click", function(){
+        shortLink.type = "text"
+    })
+}
 
-edit_btn.addEventListener("click", function(){
-    short_link.type = "text"
-})
 
 btn.addEventListener("click", function(){
     if (short_link.value == ""){
