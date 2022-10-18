@@ -17,8 +17,7 @@ def home(request):
 
 def RedirectTo(request, slug):
     # detect = URLshortner.objects.filter(date__date=timezone.now()).all()
-    detect = URLshortner.objects.get(date=slug)
-    print(detect)
+
     redirect_to = get_object_or_404(URLshortner, slug=slug)
 
     return render(request, "pages/redirect.html", {"redirect_to": redirect_to})
