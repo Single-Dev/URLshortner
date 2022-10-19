@@ -34,7 +34,4 @@ btn.addEventListener("click", function(){
             short_link.value = generateString(8)
         }
     }
-    else{
-        alert("nimadir xato ketdi");
-    }
 })

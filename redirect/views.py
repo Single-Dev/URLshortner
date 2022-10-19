@@ -4,11 +4,14 @@ from .models import *
 from .form import *
 
 def home(request):
+    initial = {'key': 'value'}
     form = ShortnerFrom()
     if request.method == "POST":
         form = ShortnerFrom(request.POST)
         if form.is_valid():
             form.save()
+            slug = form.cleaned_data.get('slug')
+            messages.success(request, f'link this {slug}')
             return redirect('/')
     context={
         "form":form,
