@@ -38,6 +38,10 @@ btn.addEventListener("click", function(){
     }
 })
 
-short_link_copy.addEventListener("click", function () {
-    navigator.clipboard.writeText(`${document.location.href}${short_link_copy.innerHTML}`)
-})
+
+if(short_link_copy){
+    short_link_copy.addEventListener("click", function () {
+        navigator.clipboard.writeText(`${document.location.href}${short_link_copy.innerHTML}`)
+    })
+    
+}
