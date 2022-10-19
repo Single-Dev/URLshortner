@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
 from .models import *
 from .form import *
-from django.utils import timezone
 
 def home(request):
     form = ShortnerFrom()
@@ -11,7 +11,7 @@ def home(request):
             form.save()
             return redirect('/')
     context={
-        "form":form
+        "form":form,
     }
     return render(request, "pages/home.html", context)
 
