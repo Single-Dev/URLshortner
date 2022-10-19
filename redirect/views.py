@@ -11,7 +11,7 @@ def home(request):
         if form.is_valid():
             form.save()
             slug = form.cleaned_data.get('slug')
-            messages.success(request, f'link this {slug}')
+            messages.success(request, f's/{slug}')
             return redirect('/')
     context={
         "form":form,

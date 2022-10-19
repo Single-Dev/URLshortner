@@ -1,6 +1,8 @@
 let short_link = document.querySelector("#short_link")
 let url = document.querySelector("#url")
 let btn = document.querySelector("#btn")
+let short_link_copy = document.querySelector("#short_link_copy")
+
 
 let edit_btn = document.getElementById("edit_btn")
 
@@ -34,4 +36,8 @@ btn.addEventListener("click", function(){
             short_link.value = generateString(8)
         }
     }
+})
+
+short_link_copy.addEventListener("click", function () {
+    navigator.clipboard.writeText(`${document.location.href}${short_link_copy.innerHTML}`)
 })
