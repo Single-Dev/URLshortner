@@ -11,7 +11,7 @@ def home(request):
         if form.is_valid():
             form.save()
             slug = form.cleaned_data.get('slug')
-            messages.success(request, f's/{slug}')
+            messages.success(request, f'{slug}')
             return redirect('/')
     context={
         "form":form,
@@ -19,9 +19,9 @@ def home(request):
     return render(request, "pages/home.html", context)
 
 def RedirectTo(request, slug):
-    # detect = URLshortner.objects.filter(date__date=timezone.now()).all()
+    # detect = UrlShortner.objects.filter(date__date=timezone.now()).all()
 
-    redirect_to = get_object_or_404(URLshortner, slug=slug)
+    redirect_to = get_object_or_404(UrlShortner, slug=slug)
 
     return render(request, "pages/redirect.html", {"redirect_to": redirect_to})
 

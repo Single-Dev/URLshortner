@@ -1,8 +1,7 @@
-from pyexpat import model
 from django import forms
-from redirect.models import URLshortner
+from redirect.models import *
 
 class ShortnerFrom(forms.ModelForm):
     class Meta:
-        model = URLshortner
+        model = UrlShortner
         fields = "__all__"

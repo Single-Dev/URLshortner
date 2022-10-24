@@ -6,7 +6,7 @@ class CustomeUser(AbstractUser):
     is_agent = models.BooleanField(default=False)
 
 
-class URLshortner(models.Model):
+class UrlShortner(models.Model):
     url = models.URLField(max_length=75)
     slug = models.SlugField(unique=True)
     

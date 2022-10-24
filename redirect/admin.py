@@ -3,6 +3,6 @@ from .models import *
 
 admin.site.register(CustomeUser)
 
-@admin.register(URLshortner)
+@admin.register(UrlShortner)
 class RegisterAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ('url', )}

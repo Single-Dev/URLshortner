@@ -2,13 +2,13 @@
   {% csrf_token %}
   {% load widget_tweaks %}
   {% if form.errors %}
-  <div class="alert alert-danger alert-dismissible d-flex" style="justify-content: space-around;" role="alert">
+  <div id="msg" class="alert alert-danger alert-dismissible d-flex" style="justify-content: space-around;" role="alert">
     <div id="form_errors">
       {% for key, value in form.errors.items %}
       <strong>{{ value }}</strong>
       {% endfor %}
     </div>
-    <button type="button" class="fa fa-solid-close btn btn-danger" data-dismiss="alert" aria-label="Close">
+    <button id="make_msg_none"  type="button" class="fa fa-solid-close btn btn-danger" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -17,7 +17,7 @@
     {% render_field form.url type="text" class="form-control w-25" id="url" placeholder="Enter Your link" %}
     {% render_field form.slug type="hidden" class="form-control w-25" id="short_link" placeholder="Custome Shor link"%}
     {% if request.user.is_authenticated %}
-    <button type="button" class="btn btn-success" id="edit_btn">Custum Short Link</button>
+    <button type="button" onclick="console.log(navigator.clipboard.readText());" class="btn btn-success" id="edit_btn">Custum Short Link</button>
     {% endif %}
     <button type="submit" class="btn btn-primary" id="btn">Submit</button>
   </div>
@@ -26,9 +26,10 @@
 {% if messages %}
 <ul class="alert alert-success alert-dismissible d-flex" style="justify-content: center;" role="alert">
   {% for message in messages %}
-  <li class="text-dark">link</li>
-  <li {% if message.tags %} class="{{ message.tags }} text-dark" {% endif %} id="short_link_copy">{{ message }}</li>
-    {% endfor %}
-
+  <li style="list-style: none;" class="text-dark" id="document_href">document location href</li>
+  <li style="list-style: none;" {% if message.tags %} class="{{ message.tags }} text-dark" {% endif %}
+    id="short_link_copy">{{ message }}</li>
+  {% endfor %}
+  <li style="list-style: none; margin-left: 15px;"><i class="fa-regular fa-copy fa-lg " id="clipboard_write"></i></li>
 </ul>
 {% endif %}
