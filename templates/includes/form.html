@@ -1,35 +1,34 @@
 <form method="post">
-    {% csrf_token %}
-    {% load widget_tweaks %}
-    {% if form.errors %}
-              <div class="alert alert-danger alert-dismissible" role="alert">
-                <div id="form_errors">
-                  {% for key, value in form.errors.items %}
-                  <strong>{{ value }}</strong>
-                  {% endfor %}
-                </div>
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="alert"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              {% endif %}
-    {% render_field form.url type="text" id="url" placeholder="Enter Your link" %}
-    {% render_field form.slug type="hidden" id="short_link" placeholder="Custome Shor link"%}
+  {% csrf_token %}
+  {% load widget_tweaks %}
+  {% if form.errors %}
+  <div class="alert alert-danger alert-dismissible d-flex" style="justify-content: space-around;" role="alert">
+    <div id="form_errors">
+      {% for key, value in form.errors.items %}
+      <strong>{{ value }}</strong>
+      {% endfor %}
+    </div>
+    <button type="button" class="fa fa-solid-close btn btn-danger" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endif %}
+  <div class="d-flex container mt-4 mb-4" style="justify-content: center;">
+    {% render_field form.url type="text" class="form-control w-25" id="url" placeholder="Enter Your link" %}
+    {% render_field form.slug type="hidden" class="form-control w-25" id="short_link" placeholder="Custome Shor link"%}
     {% if request.user.is_authenticated %}
-    <button type="button" id="edit_btn">Custum Short Link</button>
+    <button type="button" class="btn btn-success" id="edit_btn">Custum Short Link</button>
     {% endif %}
-    <button type="submit" class="btn btn-info" id="btn">Submit</button>
+    <button type="submit" class="btn btn-primary" id="btn">Submit</button>
+  </div>
 </form>
 
 {% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %} id="short_link_copy">{{ message }}</li>
+<ul class="alert alert-success alert-dismissible d-flex" style="justify-content: center;" role="alert">
+  {% for message in messages %}
+  <li class="text-dark">link</li>
+  <li {% if message.tags %} class="{{ message.tags }} text-dark" {% endif %} id="short_link_copy">{{ message }}</li>
     {% endfor %}
+
 </ul>
 {% endif %}
