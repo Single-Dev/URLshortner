@@ -6,5 +6,6 @@ app_name = "main"
 urlpatterns = [
     path("", home, name="home"),
     path("<slug:slug>", RedirectTo, name="redirect_to_slash"),
-    path("<slug:slug>/", RedirectTo, name="redirect_to")
+    path("<slug:slug>/", RedirectTo, name="redirect_to"),
+    path("r/signup/", signup, name="signup")
 ]
