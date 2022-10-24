@@ -6,7 +6,8 @@ if (short_link_val) {
     if (clipboard_write) {
         clipboard_write.addEventListener("click", function () {
             navigator.clipboard.writeText(`${document.location.href}${short_link_val.innerHTML}`)
-            console.log(short_link_val.innerHTML)
+            clipboard_write.classList.remove("fa-copy")
+            clipboard_write.classList.add("fa-check")
         })
     }
     if (document_href) {
