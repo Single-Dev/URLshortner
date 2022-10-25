@@ -29,8 +29,6 @@ def signup(request):
     return render(request, 'registration/signup.html', {"form":form})
 
 def RedirectTo(request, slug):
-    # detect = UrlShortner.objects.filter(date__date=timezone.now()).all()
-
     redirect_to = get_object_or_404(UrlShortner, slug=slug)
 
     return render(request, "pages/redirect.html", {"redirect_to": redirect_to})
