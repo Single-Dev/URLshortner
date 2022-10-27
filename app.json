@@ -1,6 +1,6 @@
 {
   "name": "URL shortner",
-  "description": "A barebones Node.js app using Express",
+  "description": "Buni hoziroq herokuga joylang.",
   "repository": "https://github.com/heroku/node-js-getting-started",
-  "logo": "https://raw.githubusercontent.com/Bekzodbek2006/furn-master/main/static/images/readme-imges/home-img.png"
+  "keywords": ["django", "heroku"]
 }
