@@ -2,5 +2,5 @@
   "name": "URL shortner",
   "description": "A barebones Node.js app using Express",
   "repository": "https://github.com/heroku/node-js-getting-started",
-  "logo": "https://node-js-sample.herokuapp.com/node.png"
+  "logo": "https://raw.githubusercontent.com/Bekzodbek2006/furn-master/main/static/images/readme-imges/home-img.png"
 }
