@@ -6,7 +6,6 @@ let make_msg_none = document.getElementById("make_msg_none")
         // if(msg){
             console.log("clicked");
             msg.classList.add("d-none")
-            console.log(msg);
         // }
     }
     make_msg_none.addEventListener("click", noneFun)

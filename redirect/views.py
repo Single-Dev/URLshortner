@@ -30,6 +30,4 @@ def signup(request):
 
 def RedirectTo(request, slug):
     redirect_to = get_object_or_404(UrlShortner, slug=slug)
-
-    return render(request, "pages/redirect.html", {"redirect_to": redirect_to})
-
+    return redirect(redirect_to.url)
