@@ -31,3 +31,10 @@ def signup(request):
 def RedirectTo(request, slug):
     redirect_to = get_object_or_404(UrlShortner, slug=slug)
     return redirect(redirect_to.url)
+
+
+def handler404(request, exception):
+    return render(request, "pages/404.html")
+
+def handler500(request, *args, **argv):
+    return render(request, 'pages/404.html', status=500)
