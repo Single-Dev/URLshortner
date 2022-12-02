@@ -2,7 +2,7 @@
   {% csrf_token %}
   {% load widget_tweaks %}
   {% if form.errors %}
-  <div id="msg" class="alert alert-danger alert-dismissible d-flex" style="justify-content: space-around;" role="alert">
+  <div id="msg" class="alert alert-danger alert-dismissible d-flex mt-4 mb-4" style="justify-content: space-around;" role="alert">
     <div id="form_errors">
       {% for key, value in form.errors.items %}
       <strong>{{ value }}</strong>
