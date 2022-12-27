@@ -4,10 +4,10 @@ from .models import *
 from .form import *
 
 def home(request):
-    initial = {'key': 'value'}
     form = ShortnerFrom()
     if request.method == "POST":
         form = ShortnerFrom(request.POST)
+        form.slug += 1
         if form.is_valid():
             form.save()
             slug = form.cleaned_data.get('slug')

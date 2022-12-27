@@ -15,7 +15,7 @@ class Registration(UserCreationForm):
 class ShortnerFrom(forms.ModelForm):
     class Meta:
         model = UrlShortner
-        fields = "__all__"
+        fields = ['url',]
 
         from django.contrib.auth import get_user_model
 

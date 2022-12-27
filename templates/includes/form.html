@@ -5,7 +5,7 @@
   <div id="msg" class="alert alert-danger alert-dismissible d-flex mt-4 mb-4" style="justify-content: space-around;" role="alert">
     <div id="form_errors">
       {% for key, value in form.errors.items %}
-      <strong>{{ value }}</strong>
+      <strong>{{ value }}, {{ key }}</strong>
       {% endfor %}
     </div>
     <button id="make_msg_none" type="button" class="fa fa-solid-close btn btn-danger" data-dismiss="alert"
@@ -16,7 +16,7 @@
   {% endif %}
   <div class="d-flex container mt-4 mb-4" style="justify-content: center;">
     {% render_field form.url type="text" class="form-control w-25" id="url" placeholder="Enter Your link" %}
-    {% render_field form.slug type="hidden" class="form-control w-25" id="short_link" placeholder="Custome Shor link"%}
+   
     {% if request.user.is_authenticated %}
     <button type="button" onclick="console.log(navigator.clipboard.readText());" class="btn btn-success"
       id="edit_btn">Custum Short Link</button>
