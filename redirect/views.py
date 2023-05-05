@@ -4,10 +4,10 @@ from .models import *
 from .form import *
 
 def home(request):
-    form = ShortnerFrom()
+    initial = {'key': 'value'}
+    form = ShortnerFrom(request.POST)
     if request.method == "POST":
         form = ShortnerFrom(request.POST)
-        form.slug += 1
         if form.is_valid():
             form.save()
             slug = form.cleaned_data.get('slug')
@@ -29,7 +29,7 @@ def signup(request):
     return render(request, 'registration/signup.html', {"form":form})
 
 def RedirectTo(request, slug):
-    redirect_to = get_object_or_404(UrlShortner, slug=slug)
+    redirect_to = UrlShortner.objects.get(slug=slug)
     return redirect(redirect_to.url)
 
 

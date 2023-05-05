@@ -1,25 +1,23 @@
 let short_link = document.querySelector("#short_link")
 let url = document.querySelector("#url")
 let btn = document.querySelector("#btn")
-
-
-
 let edit_btn = document.getElementById("edit_btn")
 
 
 let = upper = "QWERTYUIOPASDFGHJKLMNBVCXZ"
 let = lower = 'qwertyuiopasdfghjklmnbvcxz'
 let numbers = "1234567890"
-let character = "-_"
+let character = "-_/"
 
 const characters = upper + lower + numbers + character
 
 function generateString(length) {
-    let result = ' ';
+    let result = '';
     const charactersLength = characters.length;
     for ( let i = 0; i < length; i++ ) {
         result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
+    short_link.value = result
     return result;
 }
 

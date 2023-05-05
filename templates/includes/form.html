@@ -16,9 +16,10 @@
   {% endif %}
   <div class="d-flex container mt-4 mb-4" style="justify-content: center;">
     {% render_field form.url type="text" class="form-control w-25" id="url" placeholder="Enter Your link" %}
+    {% render_field form.slug type="hidden" class="form-control w-25" id="short_link" placeholder="Enter Your Short link" %}
    
     {% if request.user.is_authenticated %}
-    <button type="button" onclick="console.log(navigator.clipboard.readText());" class="btn btn-success"
+    <button type="button" class="btn btn-success"
       id="edit_btn">Custum Short Link</button>
     {% endif %}
     <button type="submit" class="btn btn-primary" id="btn">Submit</button>
